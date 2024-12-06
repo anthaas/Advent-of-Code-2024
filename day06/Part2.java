@@ -53,7 +53,6 @@ public class Part2 {
                 if (visitedPositions.contains(visitedEncoded)) {
                     return true;
                 }
-                visitedPositions.add(visitedEncoded);
                 //test next position
                 if (input[posX + incX][posY + incY] == '#') {
                     //change direction
@@ -61,18 +60,22 @@ public class Part2 {
                         incX = 0;
                         incY = 1;
                         direction = ">";
+                        visitedPositions.add(visitedEncoded);
                     } else if (incX == 0 && incY == 1) {
                         incX = 1;
                         incY = 0;
                         direction = "v";
+                        visitedPositions.add(visitedEncoded);
                     } else if (incX == 1 && incY == 0) {
                         incX = 0;
                         incY = -1;
                         direction = "<";
+                        visitedPositions.add(visitedEncoded);
                     } else if (incX == 0 && incY == -1) {
                         incX = -1;
                         incY = 0;
                         direction = "^";
+                        visitedPositions.add(visitedEncoded);
                     }
                 }
                 //make move
